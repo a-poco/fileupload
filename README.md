@@ -1,24 +1,31 @@
-# README
+# Ester's fileupload
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
 
-Things you may want to cover:
+### Installing
 
-* Ruby version
+* Git clone the repo
 
-* System dependencies
+ ```
+git clone git@github.com:a-poco/fileupload.git
+```
 
-* Configuration
+* Install dependencies
 
-* Database creation
+```
+bundle install
+```
 
-* Database initialization
+* Migrate the database schema
 
-* How to run the test suite
+```
+rails db:migrate
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+* Run the server
 
-* Deployment instructions
+ ```
+rails s
+```
 
-* ...
+* Navigate to localhost:3000
