@@ -55,3 +55,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'carrierwave', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.4.1'
+gem 'pagy', '~> 5.1'

@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
     def index
-        @documents = Document.all
+        @pagy, @documents = pagy(Document.all)
      end
      
      def new

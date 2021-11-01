@@ -3,9 +3,7 @@
       <%= flash[:notice] %>
    </div>
 <% end %>
-
 <br />
-
 <table class = "table table-bordered table-striped">
    <thead>
       <tr>
@@ -36,11 +34,11 @@
             <td><%= link_to "Edit File",  edit_document_path(document) %></td>
             <td><%= button_to "Delete",  document, method: :delete, class: "btn btn-danger" , data: { confirm: "Are you sure that you wish to delete #{document.attachment.identifier}?" } %></td>
          </tr>
-         
       <% end %>
    </tbody>
    
 </table>
+<%== pagy_nav(@pagy) %>
 <br />
 <br />
 <%= link_to "Upload file", new_document_path, class: "btn btn-primary" %>
