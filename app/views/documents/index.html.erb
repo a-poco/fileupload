@@ -1,0 +1,46 @@
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+
+<br />
+
+<table class = "table table-bordered table-striped">
+   <thead>
+      <tr>
+         <th> </th>
+         <th>Filename</th>
+         <th>Uploaded by</th>
+         <th>Description</th>
+         <th>Date</th>
+         <th> </th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <% @documents.each do |document| %>
+         <tr>
+            <td>
+               <% case document.attachment.file.extension 
+                  when "pdf" %> <%= image_tag('pdf.png',size: "36x36") %>
+               <% when "jpeg" %> <%= image_tag('jpeg.png',size: "36x36") %>
+               <% when "jpg" %> <%= image_tag('jpeg.png',size: "36x36") %>
+               <% when "xml" %> <%= image_tag('xml.png',size: "36x36") %>
+               <% end %>
+            </td>
+            <td><%= link_to document.attachment.identifier, document.attachment_url %></td>
+            <td><%= document.uploader %></td>
+            <td><%= document.description %></td>
+            <td><%= document.created_at.to_date %></td>
+            <td><%= link_to "Edit File",  edit_document_path(document) %></td>
+            <td><%= button_to "Delete",  document, method: :delete, class: "btn btn-danger" , data: { confirm: "Are you sure that you wish to delete #{document.attachment.identifier}?" } %></td>
+         </tr>
+         
+      <% end %>
+   </tbody>
+   
+</table>
+<br />
+<br />
+<%= link_to "Upload file", new_document_path, class: "btn btn-primary" %>
